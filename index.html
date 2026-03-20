@@ -177,9 +177,7 @@ function renderD(){const fil=gSD(),tot=fil.length,pgs=Math.max(1,Math.ceil(tot/P
 function renderPg(pgs,tot){const con=document.getElementById('pB');con.innerHTML='';if(!tot)return;const cur=DS.pg,mk=(lb,pg,dis=false,act=false)=>{const btn=document.createElement('button');btn.className='pbt'+(act?' active':'');btn.textContent=lb;btn.disabled=dis;if(!dis)btn.onclick=()=>{DS.pg=pg;renderD();};con.appendChild(btn);};mk('«',1,cur===1);mk('‹',cur-1,cur===1);let s=Math.max(1,cur-2),e=Math.min(pgs,cur+2);if(e-s<4){s=Math.max(1,e-4);e=Math.min(pgs,s+4);}for(let p=s;p<=e;p++)mk(p,p,false,p===cur);mk('›',cur+1,cur===pgs);mk('»',pgs,cur===pgs);}
 </script>
   <!-- DADOS_INICIO -->
-<script>
-var dados = [];
-</script>
+<script>var dados = [{"\/*":" Copyright The Closure Library Authors."},{"\/*":" SPDX-License-Identifier: Apache-2.0"},{"\/*":"*\/"},{"\/*":"\/\/ Google Inc."}];</script>
 <!-- DADOS_FIM -->
 </body>
 </html>
