@@ -176,5 +176,10 @@ function sortD(col){if(DS.sc===col)DS.sa=!DS.sa;else{DS.sc=col;DS.sa=true;}DS.pg
 function renderD(){const fil=gSD(),tot=fil.length,pgs=Math.max(1,Math.ceil(tot/PS));if(DS.pg>pgs)DS.pg=1;document.getElementById('dCnt').textContent=tot.toLocaleString('pt-BR')+' registros';document.getElementById('pI').textContent=tot?'Mostrando '+((DS.pg-1)*PS+1)+'–'+Math.min(DS.pg*PS,tot)+' de '+tot.toLocaleString('pt-BR'):'Nenhum resultado';const sl=fil.slice((DS.pg-1)*PS,DS.pg*PS),tb=document.getElementById('tB');tb.innerHTML='';if(!sl.length){tb.innerHTML='<tr><td colspan="6" class="nd"><span>🔍</span>Nenhum pedido encontrado.</td></tr>';}else{sl.forEach(r=>{const tr=document.createElement('tr'),desc=r.d||'—';const ca=r.c?'<span class="bg bgc">'+r.c+'</span>':'<span style="color:var(--t4)">—</span>';const fo=r.v?'<span class="bg bgf">'+r.v+'</span>':'<span style="color:var(--t4)">—</span>';const pr=r.p?'<span class="bg bgp">📅 '+r.p+'</span>':'<span style="color:var(--t4)">—</span>';tr.innerHTML='<td class="sol">#'+(r.n||'—')+'</td><td class="desc" title="'+desc+'">'+(desc.length>60?desc.slice(0,60)+'…':desc)+'</td><td class="qtde">'+(r.q||'—')+'</td><td>'+ca+'</td><td>'+fo+'</td><td>'+pr+'</td>';tb.appendChild(tr);});};renderPg(pgs,tot);}
 function renderPg(pgs,tot){const con=document.getElementById('pB');con.innerHTML='';if(!tot)return;const cur=DS.pg,mk=(lb,pg,dis=false,act=false)=>{const btn=document.createElement('button');btn.className='pbt'+(act?' active':'');btn.textContent=lb;btn.disabled=dis;if(!dis)btn.onclick=()=>{DS.pg=pg;renderD();};con.appendChild(btn);};mk('«',1,cur===1);mk('‹',cur-1,cur===1);let s=Math.max(1,cur-2),e=Math.min(pgs,cur+2);if(e-s<4){s=Math.max(1,e-4);e=Math.min(pgs,s+4);}for(let p=s;p<=e;p++)mk(p,p,false,p===cur);mk('›',cur+1,cur===pgs);mk('»',pgs,cur===pgs);}
 </script>
+  <!-- DADOS_INICIO -->
+<script>
+var dados = [];
+</script>
+<!-- DADOS_FIM -->
 </body>
 </html>
